@@ -12,6 +12,7 @@ var root = new Vue(
 
             ],
             newPlayer: "",
+            showOptions: false,
 
 
         },
@@ -21,7 +22,7 @@ var root = new Vue(
                     this.players.push({ name: this.newPlayer, score: 0, modifyScore: false, });
                     this.newPlayer = "";
                 } else {
-                    this.players.push({ name: `Player ${this.players.length + 1})`, score: 0, modifyScore: false, });
+                    this.players.push({ name: `Player`, score: 0, modifyScore: false, });
                     this.newPlayer = "";
                 }
 
@@ -48,10 +49,20 @@ var root = new Vue(
                 const x = this.players[index].score;
                 this.players[index].score = parseInt(x) + parseInt(-1);
             },
+            toggleOptions() {
+                this.showOptions = !this.showOptions;
+            },
             //^ FUNCTIONS AFFECTING ALL ELEMENTS.
             modifyAllPlayersScores() {
-                this.players.modifyScore = !this.players.modifyScore;
+
+                const allScores = this.players.map((player) => {
+                    player.modifyScore = !player.modifyScore;
+
+                    return player;
+                });
             },
+
+
 
 
         },
