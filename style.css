@@ -6,6 +6,14 @@
     box-sizing: border-box;
 }
 
+/*? HIDE ARROWS ON INPUT TYPE NUMBER */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
 /*= BODY */
 /*? PLAYERS LIST */
 li{
@@ -20,4 +28,23 @@ li.player{
     border: 0px;
     background: #fff;
     padding-left: 25px;
+}
+
+.delete-player{
+border-radius: 0 0 0 4px;
+
+    right: -20px;
+    top: -12px;
+}
+
+/* input.player-score{
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+    z-index: 1;
+} */
+
+button.close-score-modifier{
+    top: 0;
+    right: 0;
 }
