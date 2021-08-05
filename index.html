@@ -14,7 +14,27 @@
 </head>
 
 <body>
-    <div id="root">
+    <div id="root" class="d-flex flex-column justify-content-center align-items-center container">
+        <div class="my-5">
+            <input type="text" name="add-player" id="" placeholder="Add player..">
+        </div>
+        <div>
+            <ul>
+                <li class="player d-flex row" v-for="player in players">
+                    <div class="position-relative col-12">
+                        <span class="edit-player-name position-absolute"><i
+                                class="fas fa-pencil-alt fa-flip-horizontal"></i></span>
+                        <input type="text" name="name" class="player-name" value="player(index)">
+                    </div>
+                    <div class="score align-self-end text-right col-12">
+                        <br>
+                        <!-- {{ player.score }} --> 95/100
+                    </div>
+
+                </li>
+            </ul>
+
+        </div>
 
     </div>
     <script src="./script.js"></script>

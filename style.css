@@ -5,3 +5,19 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+/*= BODY */
+/*? PLAYERS LIST */
+li{
+    list-style-type: none;
+}
+
+li.player{
+    border: 1px solid black;
+}
+
+.player-name{
+    border: 0px;
+    background: #fff;
+    padding-left: 25px;
+}
