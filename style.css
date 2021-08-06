@@ -11,6 +11,14 @@
     background-color: #454ade;
 }
 
+.bg-color-lightblue{
+    background-color: #1089c9;
+}
+
+.bg-color-{
+    background-color: #1089c9;
+}
+
 /*? HIDE ARROWS ON INPUT TYPE NUMBER */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -20,6 +28,12 @@ input::-webkit-inner-spin-button {
 
 
 /*= BODY */
+body{
+    min-height: 100vh;
+    background-image: url(https://wallpapercave.com/wp/wp4778440.jpg);
+    background-size: 120%;
+    background-repeat: repeat;
+}
 /*? PLAYERS LIST */
 li{
     list-style-type: none;

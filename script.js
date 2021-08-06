@@ -13,6 +13,7 @@ var root = new Vue(
             ],
             newPlayer: "",
             showOptions: false,
+            areModifiesDone: false,
             showMaximumScore: false,
             maximumScore: 100,
 
@@ -54,11 +55,33 @@ var root = new Vue(
             toggleOptions() {
                 this.showOptions = !this.showOptions;
             },
+            toggleScoresModifiesStatus() {
+                this.areModifiesDone = !this.areModifiesDone;
+            },
             //^ FUNCTIONS AFFECTING ALL ELEMENTS.
+            deleteAllPlayers() {
+                this.players = [];
+            },
             modifyAllPlayersScores() {
 
                 const allScores = this.players.map((player) => {
-                    player.modifyScore = !player.modifyScore;
+                    player.modifyScore = true;
+
+                    return player;
+                });
+            },
+            allModifiesDone() {
+
+                const allScores = this.players.map((player) => {
+                    player.modifyScore = false;
+
+                    return player;
+                });
+            },
+            resetAllScores() {
+
+                const resetAllScores = this.players.map((player) => {
+                    player.score = 0;
 
                     return player;
                 });
