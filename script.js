@@ -13,6 +13,8 @@ var root = new Vue(
             ],
             newPlayer: "",
             showOptions: false,
+            showMaximumScore: false,
+            maximumScore: 100,
 
 
         },

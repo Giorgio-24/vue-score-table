@@ -6,6 +6,11 @@
     box-sizing: border-box;
 }
 
+/*? COLORS */
+.bg-color-purple{
+    background-color: #454ade;
+}
+
 /*? HIDE ARROWS ON INPUT TYPE NUMBER */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -37,12 +42,11 @@ border-radius: 0 0 0 4px;
     top: -12px;
 }
 
-/* input.player-score{
-    top: 50%;
-    left: 50%;
-    transform: translate(-50% , -50%);
-    z-index: 1;
-} */
+input.player-score{
+    max-width: 40px;
+    text-align: right;
+    font-size: 20px;
+} 
 
 button.close-score-modifier{
     top: 0;
