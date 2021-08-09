@@ -15,9 +15,10 @@
     background-color: #1089c9;
 }
 
-.bg-color-{
-    background-color: #1089c9;
+.bg-color-light-black{
+    background-color: rgba(0,0,0,0.5);
 }
+
 
 /*? HIDE ARROWS ON INPUT TYPE NUMBER */
 input::-webkit-outer-spin-button,
@@ -34,30 +35,40 @@ body{
     background-size: 120%;
     background-repeat: repeat;
 }
+
+/*? OPTIONS */
+#options{
+    margin: 0 auto;
+}
+
 /*? PLAYERS LIST */
 li{
     list-style-type: none;
 }
 
 li.player{
-    border: 1px solid black;
+    border: 3px solid black;
+}
+
+span.edit-player-name > i{
+    margin-left: 5px;
 }
 
 .player-name{
-    border: 0px;
-    background: #fff;
-    padding-left: 25px;
+    border: 1px solid #fff;
+    padding-left: 30px;
+    background-color: rgba(0,0,0,0);
+    min-width: 30px;
 }
 
 .delete-player{
-border-radius: 0 0 0 4px;
+    border-radius: 0 0 0 4px;
 
-    right: -20px;
-    top: -12px;
+    right:0;
+    top: 0;
 }
 
 input.player-score{
-    max-width: 40px;
     text-align: right;
     font-size: 20px;
 } 

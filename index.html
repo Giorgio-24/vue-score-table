@@ -18,7 +18,7 @@
         <!--^ ADD PLAYER -->
         <div class="input-group my-5 w-50">
             <button class="button-hover text-white bg-secondary border-0 px-2" @click="toggleOptions"
-                v-if="!showOptions"><i class="fas fa-ellipsis-v"></i></button>
+                v-if="!showOptions && players.length"><i class="fas fa-ellipsis-v"></i></button>
             <input type="text" name="add-player" class="form-control" placeholder="Add player.."
                 @keyup.enter="addNewPlayer" v-model="newPlayer" aria-label="Recipient's username"
                 aria-describedby="button-addon2">
@@ -27,7 +27,8 @@
         </div>
 
         <!--^ OPTIONS -->
-        <div class="mb-5 row d-flex align-items-center" v-if="showOptions">
+        <div id="options" class="mb-5 row d-flex align-items-center"
+            v-if="showOptions && !players.length ? showOptions = false : showOptions">
             <button class="button-hover text-white bg-secondary border-0 px-2 py-1 mr-2" @click="toggleOptions"><i
                     class="fas fa-ellipsis-v"></i></button>
             <button class="btn btn-outline-success border-0 bg-success text-white mr-2 my-2 p-1" type="button"
@@ -52,27 +53,28 @@
         <!--^ PLAYERS LIST -->
         <div class="w-50">
             <ul class="list-group">
-                <li class="player list-group-item border border-4 border-dark d-flex row"
+                <li class="player list-group-item bg-color-light-black d-flex row position-relative p-0"
                     v-for="(player, index) in players">
-                    <div class="position-relative col-12 mb-1">
+                    <div class=" col-12 mb-1 pr-0 p-3 ">
                         <span class="edit-player-name position-absolute"><i
-                                class="fas fa-pencil-alt fa-flip-horizontal"></i></span>
-                        <input type="text" name="name" class="player-name" v-model="player.name">
+                                class="fas fa-pencil-alt fa-flip-horizontal text-white"></i></span>
+                        <input type="text" name="name" class="player-name text-white rounded col-10 col-md-6"
+                            v-model="player.name">
                         <button
                             class="delete-player btn-close button-hover bg-danger border-0 p-1 px-2 position-absolute"
                             @click="deleteCurrentPlayer(player, index)"><i class="fas fa-times text-white"></i></button>
                     </div>
-                    <div class="score align-self-end text-right col-12 mt-4">
-                        <span class="border border-dark p-1" @click="toggleScoreModifier(index)"
+                    <div class="score align-self-end text-right text-white col-12 mt-0 mt-md-2 mt-md-4 p-3">
+                        <span class="border border-white p-1" @click="toggleScoreModifier(index)"
                             v-if="!isModifing(index)">{{
                             player.score }}/{{ maximumScore }}</span>
 
                         <!--^ SCORE MODIFIER -->
-                        <div class="bg-warning col-12 py-3 rounded position-relative d-flex justify-content-between"
+                        <div class="bg-warning col-12 px-4 py-3 rounded position-relative d-flex justify-content-between"
                             v-else="isModifing(index)">
-                            <div class="d-flex align-items-center">
-                                <input class="player-score mr-1" type="number" name="player-score"
-                                    v-model="player.score">
+                            <div class="d-flex align-items-center row">
+                                <input class="player-score mr-1 pr-0 col-4 col-sm-8 col-md-8" type="number"
+                                    name="player-score" v-model="player.score">
                                 <button class="btn btn-outline-secondary border-0 bg-danger text-white p-1 mr-1"
                                     @click="removePoints(index)"><i class="fas fa-minus"></i></button>
                                 <button class="btn btn-outline-secondary border-0 bg-success text-white p-1"
