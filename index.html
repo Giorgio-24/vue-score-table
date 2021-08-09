@@ -51,7 +51,7 @@
         </div>
 
         <!--^ PLAYERS LIST -->
-        <div class="w-50">
+        <div class="w-50" v-if="players.length">
             <ul class="list-group">
                 <li class="player list-group-item bg-color-light-black d-flex row position-relative p-0"
                     v-for="(player, index) in players">
@@ -87,6 +87,9 @@
                     </div>
                 </li>
             </ul>
+        </div>
+        <div class="h1 text-uppercase text-white text-center bg-color-light-black" v-else="!players.length">
+            There are no more players.
         </div>
     </div>
     <script src="./script.js"></script>
