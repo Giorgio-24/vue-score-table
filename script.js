@@ -55,7 +55,11 @@ var root = new Vue(
                 if (this.isDefaultModeOn === true) {
                     this.players[index].score = parseInt(x) + parseInt(1);
                 } else {
-                    this.players[index].score = parseInt(x) + parseInt(y);
+                    if (y === 0 || !y) {
+                        this.players[index].score = 0;
+                    } else {
+                        this.players[index].score = parseInt(x) + parseInt(y);
+                    }
                 }
 
             },

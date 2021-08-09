@@ -65,7 +65,7 @@
                             class="delete-player btn-close button-hover bg-danger border-0 p-1 px-2 position-absolute"
                             @click="deleteCurrentPlayer(player, index)"><i class="fas fa-times text-white"></i></button>
                     </div>
-                    <div class="score align-self-end text-right text-white col-12 mt-0 mt-md-2 mt-md-4 p-3">
+                    <div class="score align-self-end text-right text-white col-12 mt-0 mt-md-2 p-3">
                         <span class="border border-white p-1" @click="toggleScoreModifier(index)"
                             v-if="!isModifing(index)">{{
                             player.score }}/{{ maximumScore }}</span>
@@ -74,11 +74,11 @@
                         <div class="bg-warning px-4 py-3 rounded position-relative d-flex justify-content-between"
                             v-else="isModifing(index)">
                             <div class="d-flex align-items-center row">
-                                <input class="player-score mr-1 pr-0 col-4 col-sm-8 col-md-8" type="number"
+                                <input class="player-score mr-1 px-0 col-4 col-sm-8 col-md-8" type="number"
                                     name="player-score" v-model="player.score" v-if="isDefaultModeOn"
                                     @keyup.enter="toggleScoreModifier(index)">
                                 <!--* SECONDARY MODE INPUT START -->
-                                <input class="player-score mr-1 pr-0 col-4 col-sm-2" type="number" name="player-score"
+                                <input class="player-score mr-1 px-0 col-4 col-md-2" type="number" name="player-score"
                                     v-model="player.addToScore" v-if="!isDefaultModeOn"
                                     @keyup.enter="addPoints(index); toggleScoreModifier(index)">
                                 <!--* SECONDARY MODE INPUT END-->
