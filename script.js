@@ -5,10 +5,10 @@ var root = new Vue(
         el: '#root',
         data: {
             players: [
-                { name: 'Giova', score: 0, modifyScore: false, },
-                { name: 'Simo', score: 20, modifyScore: false, },
-                { name: 'Daniele', score: 15, modifyScore: false, },
-                { name: 'Pippo', score: 10, modifyScore: false, },
+                { name: 'Giova', score: 0, modifyScore: false, addToScore: 0, },
+                { name: 'Simo', score: 20, modifyScore: false, addToScore: 0, },
+                { name: 'Daniele', score: 15, modifyScore: false, addToScore: 0, },
+                { name: 'Pippo', score: 10, modifyScore: false, addToScore: 0, },
 
             ],
             newPlayer: "",
@@ -16,22 +16,27 @@ var root = new Vue(
             areModifiesDone: false,
             showMaximumScore: false,
             maximumScore: 100,
+            isDefaultModeOn: true,
+            addToScore: 0,
 
 
         },
         methods: {
             addNewPlayer() {
                 if (this.newPlayer.trim() !== "") {
-                    this.players.push({ name: this.newPlayer.charAt(0).toUpperCase() + this.newPlayer.slice(1), score: 0, modifyScore: false, });
+                    this.players.push({ name: this.newPlayer.charAt(0).toUpperCase() + this.newPlayer.slice(1), score: 0, modifyScore: false, addToScore: 0, });
                     this.newPlayer = "";
                 } else {
-                    this.players.push({ name: `Player`, score: 0, modifyScore: false, });
+                    this.players.push({ name: `Player`, score: 0, modifyScore: false, addToScore: 0, });
                     this.newPlayer = "";
                 }
 
             },
             deleteCurrentPlayer(index) {
                 const x = this.players.splice(index, 1);
+            },
+            toggleMode() {
+                this.isDefaultModeOn = !this.isDefaultModeOn;
             },
             toggleScoreModifier(index) {
                 const taskStatus = this.players.map((player, playerIndex) => {
@@ -46,7 +51,13 @@ var root = new Vue(
             },
             addPoints(index) {
                 const x = this.players[index].score;
-                this.players[index].score = parseInt(x) + parseInt(1);
+                const y = this.players[index].addToScore;
+                if (this.isDefaultModeOn === true) {
+                    this.players[index].score = parseInt(x) + parseInt(1);
+                } else {
+                    this.players[index].score = parseInt(x) + parseInt(y);
+                }
+
             },
             removePoints(index) {
                 const x = this.players[index].score;

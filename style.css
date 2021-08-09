@@ -19,6 +19,9 @@
     background-color: rgba(0,0,0,0.5);
 }
 
+.bg-color-blue{
+    background-color: #FF4500;
+}
 
 /*? HIDE ARROWS ON INPUT TYPE NUMBER */
 input::-webkit-outer-spin-button,

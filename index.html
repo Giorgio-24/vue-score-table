@@ -45,9 +45,10 @@
             <button class="btn btn-outline bg-color-purple border-0 text-white mr-2 my-2 p-1" type="button"
                 @click="showMaximumScore = !showMaximumScore">Set
                 maximum score</button>
-            <input type="number" class="player-score my-2 col-2 col-sm-1 p-0" v-if="showMaximumScore"
+            <input type="number" class="player-score my-2 mr-2 col-2 col-sm-1 p-0" v-if="showMaximumScore"
                 v-model="maximumScore" @keyup.enter="showMaximumScore = !showMaximumScore">
-
+            <button class="btn btn-outline bg-color-blue border-0 text-white mr-2 my-2 p-1" type="button"
+                @click="toggleMode">Change mode</button>
         </div>
 
         <!--^ PLAYERS LIST -->
@@ -74,12 +75,37 @@
                             v-else="isModifing(index)">
                             <div class="d-flex align-items-center row">
                                 <input class="player-score mr-1 pr-0 col-4 col-sm-8 col-md-8" type="number"
-                                    name="player-score" v-model="player.score">
+                                    name="player-score" v-model="player.score" v-if="isDefaultModeOn"
+                                    @keyup.enter="toggleScoreModifier(index)">
+                                <!--* SECONDARY MODE INPUT START -->
+                                <input class="player-score mr-1 pr-0 col-4 col-sm-2" type="number" name="player-score"
+                                    v-model="player.addToScore" v-if="!isDefaultModeOn"
+                                    @keyup.enter="addPoints(index); toggleScoreModifier(index)">
+                                <!--* SECONDARY MODE INPUT END-->
+                                <button class="btn btn-outline-secondary border-0 bg-danger text-white p-1 mr-1"
+                                    @click="removePoints(index)" v-if="isDefaultModeOn"><i
+                                        class="fas fa-minus"></i></button>
+                                <button class="btn btn-outline-secondary border-0 bg-success text-white p-1"
+                                    type="button" @click="addPoints(index)"><i class="fas fa-plus"
+                                        v-if="isDefaultModeOn"></i><span v-if="!isDefaultModeOn">Add</span></button>
+                                <!--* SECONDARY MODE SPAN START -->
+                                <span class="text-center text-dark font-weight-bold ml-2 mr-md-3 d-none d-sm-inline"
+                                    v-if="!isDefaultModeOn"><span class="d-none d-lg-inline">{{
+                                        player.name }}'s current score
+                                        is: </span><span class="border border-dark p-1">{{ player.score
+                                        }}/{{ maximumScore }}</span></span>
+                                <!--* SECONDARY MODE SPAN END -->
+                            </div>
+                            <!--? SECONDARY MODE -->
+                            <!--                             <div class="d-flex align-items-center row">
+                                <input class="player-score mr-1 pr-0 col-4 col-sm-8 col-md-8" type="number"
+                                    name="player-score" v-model="player.score"
+                                    @keyup.enter="toggleScoreModifier(index)">
                                 <button class="btn btn-outline-secondary border-0 bg-danger text-white p-1 mr-1"
                                     @click="removePoints(index)"><i class="fas fa-minus"></i></button>
                                 <button class="btn btn-outline-secondary border-0 bg-success text-white p-1"
                                     type="button" @click="addPoints(index)"><i class="fas fa-plus"></i></button>
-                            </div>
+                            </div> -->
                             <button
                                 class="close-score-modifier btn-close button-hover bg-danger rounded border-0 p-1 px-2 position-absolute"
                                 @click="toggleScoreModifier(index)"><i class="fas fa-times text-white"></i></button>
