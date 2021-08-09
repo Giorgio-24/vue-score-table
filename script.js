@@ -22,7 +22,7 @@ var root = new Vue(
         methods: {
             addNewPlayer() {
                 if (this.newPlayer.trim() !== "") {
-                    this.players.push({ name: this.newPlayer, score: 0, modifyScore: false, });
+                    this.players.push({ name: this.newPlayer.charAt(0).toUpperCase() + this.newPlayer.slice(1), score: 0, modifyScore: false, });
                     this.newPlayer = "";
                 } else {
                     this.players.push({ name: `Player`, score: 0, modifyScore: false, });

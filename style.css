@@ -31,7 +31,8 @@ input::-webkit-inner-spin-button {
 /*= BODY */
 body{
     min-height: 100vh;
-    background-image: url(https://wallpapercave.com/wp/wp4778440.jpg);
+/*     background-image: url(https://wallpapercave.com/wp/wp4778440.jpg); */
+    background-color: #a9a9a9;
     background-size: 120%;
     background-repeat: repeat;
 }
@@ -76,4 +77,17 @@ input.player-score{
 button.close-score-modifier{
     top: 0;
     right: 0;
+}
+
+/*= MEDIA QUERIES */
+
+@media screen and (min-width: 992px) {
+    
+    body  {
+        min-height: 100vh;
+        background-image: url(https://wallpapercave.com/wp/wp4778440.jpg);
+        background-color: none;
+        background-size: 120%;
+        background-repeat: repeat;
+      }
 }

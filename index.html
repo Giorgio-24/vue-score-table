@@ -45,8 +45,8 @@
             <button class="btn btn-outline bg-color-purple border-0 text-white mr-2 my-2 p-1" type="button"
                 @click="showMaximumScore = !showMaximumScore">Set
                 maximum score</button>
-            <input type="number" class="player-score my-2 col-1 p-0" v-if="showMaximumScore" v-model="maximumScore"
-                @keyup.enter="showMaximumScore = !showMaximumScore">
+            <input type="number" class="player-score my-2 col-2 col-sm-1 p-0" v-if="showMaximumScore"
+                v-model="maximumScore" @keyup.enter="showMaximumScore = !showMaximumScore">
 
         </div>
 
