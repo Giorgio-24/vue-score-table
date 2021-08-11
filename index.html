@@ -47,8 +47,8 @@
                 maximum score</button>
             <input type="number" class="player-score my-2 mr-2 col-2 col-sm-1 p-0" v-if="showMaximumScore"
                 v-model="maximumScore" @keyup.enter="showMaximumScore = !showMaximumScore">
-            <button class="btn btn-outline bg-color-blue border-0 text-white mr-2 my-2 p-1" type="button"
-                @click="toggleMode">Change mode</button>
+            <button class="btn btn-outline bg-color-orange border-0 text-white mr-2 my-2 p-1" type="button"
+                @click="toggleMode" :class="{bgMagenta : !isDefaultModeOn}">Change mode</button>
         </div>
 
         <!--^ PLAYERS LIST -->

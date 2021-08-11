@@ -19,8 +19,12 @@
     background-color: rgba(0,0,0,0.5);
 }
 
-.bg-color-blue{
+.bg-color-orange{
     background-color: #FF4500;
+}
+
+.bgMagenta{
+    background-color: #d9138a;
 }
 
 /*? HIDE ARROWS ON INPUT TYPE NUMBER */
