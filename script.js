@@ -5,10 +5,10 @@ var root = new Vue(
         el: '#root',
         data: {
             players: [
-                { name: 'Giova', score: 0, modifyScore: false, addToScore: 0, },
-                { name: 'Simo', score: 20, modifyScore: false, addToScore: 0, },
-                { name: 'Daniele', score: 15, modifyScore: false, addToScore: 0, },
-                { name: 'Pippo', score: 10, modifyScore: false, addToScore: 0, },
+                { name: 'Player 1', score: 0, modifyScore: false, addToScore: 0, },
+                { name: 'Player 2', score: 0, modifyScore: false, addToScore: 0, },
+                { name: 'Player 3', score: 0, modifyScore: false, addToScore: 0, },
+                { name: 'Player 4', score: 0, modifyScore: false, addToScore: 0, },
 
             ],
             newPlayer: "",
@@ -32,7 +32,7 @@ var root = new Vue(
                 }
 
             },
-            deleteCurrentPlayer(index) {
+            deleteCurrentPlayer(player, index) {
                 const x = this.players.splice(index, 1);
             },
             toggleMode() {
@@ -60,7 +60,7 @@ var root = new Vue(
                     } else {
                         this.players[index].score = parseInt(x) + parseInt(y);
                     }
-                }
+                };
 
             },
             removePoints(index) {

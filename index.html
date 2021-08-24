@@ -16,7 +16,7 @@
 <body>
     <div id="root" class="d-flex flex-column justify-content-center align-items-center container">
         <!--^ ADD PLAYER -->
-        <div class="input-group my-5 w-50">
+        <div class="input-group my-3 my-md-5 w-50">
             <button class="button-hover text-white bg-secondary border-0 px-2" @click="toggleOptions"
                 v-if="!showOptions && players.length"><i class="fas fa-ellipsis-v"></i></button>
             <input type="text" name="add-player" class="form-control" placeholder="Add player.."
@@ -27,7 +27,7 @@
         </div>
 
         <!--^ OPTIONS -->
-        <div id="options" class="mb-5 row d-flex align-items-center"
+        <div id="options" class="mb-3 mb-md-5 row d-flex align-items-center justify-content-center"
             v-if="showOptions && !players.length ? showOptions = false : showOptions">
             <button class="button-hover text-white bg-secondary border-0 px-2 py-1 mr-2" @click="toggleOptions"><i
                     class="fas fa-ellipsis-v"></i></button>
@@ -39,8 +39,8 @@
                 done</button>
             <button class="btn btn-outline bg-color-lightblue border-0 text-white mr-2 my-2 p-1" type="button"
                 @click="resetAllScores">Reset all scores</button>
-            <button class="btn btn-outline-danger border-0 bg-danger text-white mr-2 my-2 p-1" type="button"
-                @click="deleteAllPlayers()">Delete all
+            <button class="d-none d-sm-inline-block btn btn-outline-danger border-0 bg-danger text-white mr-2 my-2 p-1"
+                type="button" @click="deleteAllPlayers()">Delete all
                 players</button>
             <button class="btn btn-outline bg-color-purple border-0 text-white mr-2 my-2 p-1" type="button"
                 @click="showMaximumScore = !showMaximumScore">Set
@@ -96,16 +96,6 @@
                                         }}/{{ maximumScore }}</span></span>
                                 <!--* SECONDARY MODE SPAN END -->
                             </div>
-                            <!--? SECONDARY MODE -->
-                            <!--                             <div class="d-flex align-items-center row">
-                                <input class="player-score mr-1 pr-0 col-4 col-sm-8 col-md-8" type="number"
-                                    name="player-score" v-model="player.score"
-                                    @keyup.enter="toggleScoreModifier(index)">
-                                <button class="btn btn-outline-secondary border-0 bg-danger text-white p-1 mr-1"
-                                    @click="removePoints(index)"><i class="fas fa-minus"></i></button>
-                                <button class="btn btn-outline-secondary border-0 bg-success text-white p-1"
-                                    type="button" @click="addPoints(index)"><i class="fas fa-plus"></i></button>
-                            </div> -->
                             <button
                                 class="close-score-modifier btn-close button-hover bg-danger rounded border-0 p-1 px-2 position-absolute"
                                 @click="toggleScoreModifier(index)"><i class="fas fa-times text-white"></i></button>
